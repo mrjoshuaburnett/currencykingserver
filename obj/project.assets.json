@@ -5817,11 +5817,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Personal\\CurrencyKing\\Server\\CurrencyKing.csproj",
+      "projectUniqueName": "C:\\Personal\\currencykingserver\\CurrencyKing.csproj",
       "projectName": "CurrencyKing",
-      "projectPath": "C:\\Personal\\CurrencyKing\\Server\\CurrencyKing.csproj",
+      "projectPath": "C:\\Personal\\currencykingserver\\CurrencyKing.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Personal\\CurrencyKing\\Server\\obj\\",
+      "outputPath": "C:\\Personal\\currencykingserver\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",

@@ -82,7 +82,7 @@ namespace CurrencyKing
                     .AllowCredentials()
                     .WithOrigins(new string[] {
                                         "http://localhost:8085",
-                                        "https://currency-king.web.app/"
+                                        "https://currency-king.web.app"
 
                     });
                 }));
