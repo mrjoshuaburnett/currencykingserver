@@ -110,31 +110,25 @@ namespace CurrencyKing
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseContext context)
         {
-            if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CurrencyKing v1"));
-            }
-            else
-            {
-                app.UseHsts();
-            }
-            app.UseHttpsRedirection();
-            app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.None, Secure = CookieSecurePolicy.SameAsRequest, HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.Always });
-            app.UseRouting();
-            app.UseCors("CorsPolicy");
-            app.UseMiddleware<AuthenticationMiddleware>();
-            app.UseAuthentication();
-            app.UseAuthorization();
-            app.UseResponseCompression();
-            app.UseResponseCaching();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+                app.UseHttpsRedirection();
+                app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.None, Secure = CookieSecurePolicy.SameAsRequest, HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.Always });
+                app.UseRouting();
+                app.UseCors("CorsPolicy");
+                app.UseMiddleware<AuthenticationMiddleware>();
+                app.UseAuthentication();
+                app.UseAuthorization();
+                app.UseResponseCompression();
+                app.UseResponseCaching();
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
 
-            context.Database.Migrate();
+                context.Database.Migrate();
+
         }
     }
 }
