@@ -154,14 +154,5 @@ namespace CurrencyKing.Controllers
             }
         }
 
-        [AllowAnonymous]
-        [Route("[controller]")]
-        [Route("/")]
-        public ActionResult Startup()
-        {
-
-            return new JsonResult("Server is live!");
-
-        }
     }
 }
