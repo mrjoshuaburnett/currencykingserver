@@ -153,5 +153,15 @@ namespace CurrencyKing.Controllers
                 return new JsonResult(new { error = "Unable to change password - The current password you provided is invalid.  Please logout and reset your password instead." });
             }
         }
+
+        [AllowAnonymous]
+        [Route("[controller]")]
+        [Route("/")]
+        public ActionResult Startup()
+        {
+
+            return new JsonResult("Server is live!");
+
+        }
     }
 }
