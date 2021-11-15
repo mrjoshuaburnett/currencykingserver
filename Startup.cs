@@ -80,7 +80,6 @@ namespace CurrencyKing
                     builder.AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()
-                    .AllowAnyOrigin()
                     .WithOrigins(new string[] {
                                         "http://localhost:8085",
                                         "https://currency-king.web.app"
