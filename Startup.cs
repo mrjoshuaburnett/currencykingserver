@@ -80,11 +80,7 @@ namespace CurrencyKing
                     builder.AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()
-                    .WithOrigins(new string[] {
-                                        "http://localhost:8085",
-                                        "https://currency-king.web.app"
-
-                    });
+                    .AllowAnyOrigin();
                 }));
 
             services.Configure<GzipCompressionProviderOptions>(options =>
@@ -125,6 +121,7 @@ namespace CurrencyKing
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseRouting();
+
             app.UseCors("CorsPolicy");
             app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.None, Secure = CookieSecurePolicy.SameAsRequest, HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.Always });
 
