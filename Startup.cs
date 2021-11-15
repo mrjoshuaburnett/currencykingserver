@@ -120,16 +120,15 @@ namespace CurrencyKing
             {
                 app.UseHsts();
             }
-
+            app.UseHttpsRedirection();
+            app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.None, Secure = CookieSecurePolicy.SameAsRequest, HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.Always });
+            app.UseRouting();
+            app.UseCors("CorsPolicy");
             app.UseMiddleware<AuthenticationMiddleware>();
             app.UseAuthentication();
-            app.UseHttpsRedirection();
-            app.UseRouting();
-
-            app.UseCors("CorsPolicy");
-            app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.None, Secure = CookieSecurePolicy.SameAsRequest, HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.Always });
-
             app.UseAuthorization();
+            app.UseResponseCompression();
+            app.UseResponseCaching();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
